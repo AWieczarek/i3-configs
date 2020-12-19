@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -191,13 +191,32 @@ exec_always --no-startip-id $HOME/Scripts/i3listen.py
 #            urgent_workspace   $urgent-bg-color   #$urgent-bg-color   $text-color     #           }
 #}
 
-bindsym XF86AudioRaiseVolume exec britness up
-bindsym XF86MonBrightnessDown exec britness down
+bindsym XF86MonBrightnessUp exec brightnessctl s +5% # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%- # decrease screen brightness
 
-bindsym $mod+d exec rofi -show run -config /etc/rofi.conf
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 3+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 3- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
-exec --no-startup-id compton -f
-exec_always feh --bg-scale /home/adam/Downloads/wallpaper.jpg
+
+bindsym $mod+d exec rofi -show run -config $HOME/.config/rofi/config
+
+exec --no-startup-id picom -f
+exec_always feh --bg-scale /home/awieczarek/Downloads/wallpaper.jpg
 
 exec_always setxkbmap pl 
+
+# Inner gaps off
+bindsym $mod+Shift+g gaps inner all set 0
+# Inner gaps on
+bindsym $mod+g gaps inner all set 10
+
+# Window bordergs
+for_window [class=".*"] border pixel 2
+hide_edge_borders smart
+# Enable gaps by default
+gaps inner 10
+smart_gaps on
+
+
 

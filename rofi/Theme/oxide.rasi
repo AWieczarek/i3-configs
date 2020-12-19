@@ -1,8 +1,8 @@
 * {
-    backgroundcolor: #2f343f;
+    backgroundcolor: #2e3440;
     bg1: #3b4252;
-    backgroundcoloralternate: #2f343f;
-    separatorcolor: #2f343f;
+    backgroundcoloralternate: #2e3440;
+    separatorcolor: #3b4252;
     scrollbarcolor: #3b4252;
     foregroundcolor: #839496;
     foregroundcolorinverse: #839496;
@@ -17,7 +17,6 @@
     margin-bottom: 0;
     margin-top: 0;
     spacing: 0;
-    fullscreen:true;
 }
 
 #listview {
@@ -33,11 +32,10 @@
     border-color: @separatorcolor;
     border: 1;
     border-radius: 2px;
-    padding: 250;
 }
 
 #mainbox {
-    border: 1;
+    border: 0;
     padding: 0;
     background-color: @backgroundcoloralternate;
 }
